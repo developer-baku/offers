@@ -1,1 +1,1 @@
-microservice that retrive offers, creates post database, access to AWS
+microservice that retrive offers, creates post database, access to AWS, you need additional env file
