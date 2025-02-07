@@ -1,0 +1,33 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        transaction:
+          jta:
+            platform: true
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  application:
+    name: offers
+  liquibase:
+    clear-checksums: false
+    change-log: classpath:/db.changelog/changelog-master.yaml
+    enabled: true
+  datasource:
+    password: ${DB_PASSWORD}
+    username: ${DB_USERNAME}
+    url: jdbc:postgresql://${DB_HOST}/${DB_NAME}
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+swagger:
+  server:
+    routes:
+      local: http://localhost:${server.port}
+      global: https://api-dev.mibank2.andersenlab.dev/os
+server:
+  port: 8080
